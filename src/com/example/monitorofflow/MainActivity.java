@@ -58,7 +58,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		
 		smallIntent=new Intent(this,SmallWindowService.class);
 		this.startService(smallIntent);
-		
+
 		textview= (TextView) findViewById(R.id.textView1);
 	}
 	ServiceConnection conn = new ServiceConnection() {

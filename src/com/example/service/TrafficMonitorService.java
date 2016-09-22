@@ -80,7 +80,7 @@ public class TrafficMonitorService extends Service{
 					if(monitor.isWifi()==true){
 						type="wifi";
 					}else{
-						type="gps";
+						type="gprs";
 					}
 					if(i%2==0){
 						text=type;

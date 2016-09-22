@@ -20,15 +20,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String sql;
+		//
 		sql = "create table appTraffic(appUID integer not null unique,monthlyTraffic real not null);";
 		db.execSQL(sql);
-		
+		//
 		sql = "create table totalTraffic(monthlyTraffic real not null);";
 		db.execSQL(sql);
-		
+		//
 		sql = "create table tmConfig(configKey text not null unique,configValue text not null);";
 		db.execSQL(sql);
+		//
+		sql = "insert into totalTraffic value(0.0)";
+		db.execSQL(sql);
+		//≥ı ºªØ≈‰÷√
+		sql = "insert into tmConfig value('balanceSheetDate'.'2016-12-1')";
+		db.execSQL(sql);
 		
+		sql = "insert into tmConfig value('gprsMaximum'.'30')";
+		db.execSQL(sql);
+		
+		sql = "insert into tmConfig value('warnTraffic'.'25')";
+		db.execSQL(sql);
+		
+		sql = "insert into tmConfig value('usedTraffic'.'0')";
+		db.execSQL(sql);
+		
+
 		
 	}
 

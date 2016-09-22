@@ -4,7 +4,7 @@ import java.util.List;
 
 import android.content.Context;
 
-import com.exmaple.model.Program;
+import com.example.model.Program;
 
 public class ProgramUtil {
 	public static Program getProgramForUid(Context context,int uid){
