@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface IMonitorManager {
 
-	public ITrafficMonitor getTrafficMonitor();
+	public IRealtimeMonitor getTrafficMonitor();
 }

@@ -4,8 +4,8 @@ package com.example.service;
 import com.example.monitorofflow.R;
 import com.example.monitorofflow.MainActivity.MsgReceiver;
 import com.example.monitorsys.IMonitorManager;
-import com.example.monitorsys.ITrafficMonitor;
-import com.example.monitorsys.MonitorcManager;
+import com.example.monitorsys.IRealtimeMonitor;
+import com.example.monitorsys.MonitorManager;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -67,7 +67,7 @@ public class SmallWindowService extends Service{
 
 		@Override
 		public void onReceive(Context context, Intent intent) {
-			// TODO Auto-generated method stub
+
 			
 			mFloatView.setText(intent.getStringExtra("RealTimeTrafficData"));
 		}
@@ -119,7 +119,7 @@ public class SmallWindowService extends Service{
 	        	@Override  
 	        	public boolean onTouch(View v,MotionEvent event)   
 	        	{  
-	        		// TODO Auto-generated method stub  
+	        		//   
 	        		//getRawX是触摸位置相对于屏幕的坐标，getX是相对于按钮的坐标  
 	        		wmParams.x = (int) event.getRawX() - mFloatView.getMeasuredWidth()/2;  
 	        		Log.i(TAG, "RawX" + event.getRawX());  

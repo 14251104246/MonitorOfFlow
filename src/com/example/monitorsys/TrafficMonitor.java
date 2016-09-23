@@ -1,13 +1,14 @@
 package com.example.monitorsys;
 
+import android.content.Context;
+
 import com.example.dao.ITrafficData;
 import com.example.dao.TrafficData;
 /**
  * 通过MonitorcManager获得对象
- * @author 123
- *
+ * 
  */
-public class TrafficMonitor implements ITrafficMonitor{
+public class TrafficMonitor implements IRealtimeMonitor{
 
 	private long trafficTotalRxSpeed;
 	private long trafficTotalTxSpeed;
@@ -42,6 +43,10 @@ public class TrafficMonitor implements ITrafficMonitor{
 	public boolean isWifi() {
 		// TODO Auto-generated method stub
 		return trafficdata.iswifi();
+	}
+	public boolean isWifiConnected(Context context) {
+		// TODO Auto-generated method stub
+		return trafficdata.isWifiConnected(context);
 	}
 	/**
 	 * 开始流量监控

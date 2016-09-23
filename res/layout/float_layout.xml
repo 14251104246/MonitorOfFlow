@@ -8,13 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.monitorofflow.MainActivity$PlaceholderFragment" >
 
-
     <Button
         android:id="@+id/float_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Button" />
+        android:background="#44333333"
+        android:minHeight="6dp"
+        android:textSize="10sp" />
 
 </LinearLayout>

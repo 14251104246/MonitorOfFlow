@@ -3,10 +3,11 @@ package com.example.service;
 import com.example.dao.ITrafficData;
 import com.example.dao.TrafficData;
 import com.example.monitorsys.IMonitorManager;
-import com.example.monitorsys.ITrafficMonitor;
-import com.example.monitorsys.MonitorcManager;
+import com.example.monitorsys.IRealtimeMonitor;
+import com.example.monitorsys.MonitorManager;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
@@ -18,7 +19,7 @@ public class TrafficMonitorService extends Service{
 	
 	//流量数据获取
 	private IMonitorManager manager;
-	private ITrafficMonitor monitor;
+	private IRealtimeMonitor monitor;
 	private Intent Smallintent = new Intent("com.example.service.RECEIVER");
 	
 	public long getTrafficTotalRxSpeed() {
@@ -52,7 +53,7 @@ public class TrafficMonitorService extends Service{
 	}
 	
 	private void sendRealTimeTrafficData() {
-		manager = MonitorcManager.getInstance();
+		manager = MonitorManager.getInstance();
 		monitor = manager.getTrafficMonitor();
 		
 		new Thread(new Runnable() {
@@ -77,7 +78,7 @@ public class TrafficMonitorService extends Service{
 					rx=(float) ((float) (monitor.getTrafficTotalRxSpeed())/1000.0);
 					tx=(float) ((float) (monitor.getTrafficTotalTxSpeed())/1000.0);
 					
-					if(monitor.isWifi()==true){
+					if(monitor.isWifiConnected((Context)TrafficMonitorService.this)==true){
 						type="wifi";
 					}else{
 						type="gprs";

@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated constructor stub
 	}
 
+
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String sql;
@@ -24,25 +25,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		sql = "create table appTraffic(appUID integer not null unique,monthlyTraffic real not null);";
 		db.execSQL(sql);
 		//
-		sql = "create table totalTraffic(monthlyTraffic real not null);";
+		sql = "create table totalTraffic(monthlyTraffic real not null,yesterdayMTraffic real not null,todayTraffic real not null);";
 		db.execSQL(sql);
 		//
-		sql = "create table tmConfig(configKey text not null unique,configValue text not null);";
+		sql = "create table Config(configKey text not null unique,configValue text not null);";
 		db.execSQL(sql);
-		//
-		sql = "insert into totalTraffic value(0.0)";
-		db.execSQL(sql);
+		//初始化总流量
+//		sql = "insert into totalTraffic value(0.0)";
+//		db.execSQL(sql);
 		//初始化配置
-		sql = "insert into tmConfig value('balanceSheetDate'.'2016-12-1')";
+		sql = "insert into Config value('balanceSheetDate'.'2016-12-1')";
 		db.execSQL(sql);
 		
-		sql = "insert into tmConfig value('gprsMaximum'.'30')";
+		sql = "insert into Config value('gprsMaximum'.'30')";
 		db.execSQL(sql);
 		
-		sql = "insert into tmConfig value('warnTraffic'.'25')";
+		sql = "insert into Config value('warnTraffic'.'25')";
 		db.execSQL(sql);
 		
-		sql = "insert into tmConfig value('usedTraffic'.'0')";
+		sql = "insert into Config value('usedTraffic'.'0')";
 		db.execSQL(sql);
 		
 
