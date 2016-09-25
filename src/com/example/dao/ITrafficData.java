@@ -21,6 +21,7 @@ public interface ITrafficData {
 	 * @return
 	 */
 	public long getTotalWifiFromBoot();
+	public long getTotalGprsFromBoot();
 	public boolean iswifi();
 	public boolean isWifiConnected(Context context);
 }

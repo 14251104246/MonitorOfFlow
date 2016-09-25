@@ -48,6 +48,12 @@ public class SmallWindowService extends Service{
 	}
 
 	@Override
+	public int onStartCommand(Intent intent, int flags, int startId) {
+		// TODO Auto-generated method stub
+		return Service.START_STICKY;
+	}
+
+	@Override
 	public void onCreate() {
 		
 		super.onCreate();
@@ -158,6 +164,7 @@ public class SmallWindowService extends Service{
 		if(mFloatLayout!=null){
 			mWindowManager.removeView(mFloatLayout);
 		}
+		unregisterReceiver(receiver);
 		super.onDestroy();
 	}
 	

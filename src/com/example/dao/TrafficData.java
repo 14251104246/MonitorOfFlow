@@ -36,8 +36,7 @@ public class TrafficData implements ITrafficData{
 	}
 	@Override
 	public long getTotalWifiFromBoot() {
-		// TODO Auto-generated method stub
-		return 0;
+		return getTotalRxFromBoot()+getTotalTxFromBoot()-getTotalGprsFromBoot();
 	}
 	@Override
 	public long getUidRxBytes(int uid) {
@@ -72,4 +71,10 @@ public class TrafficData implements ITrafficData{
 	      
 	        return false ;
 	 }
+	@Override
+	public long getTotalGprsFromBoot() {
+		long gprs= getGprsRxFromBoot()+getGprsTxFromBoot();
+
+		return gprs;
+	}
 }

@@ -6,11 +6,15 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 
 public class PackagesInfo {
-	List<ApplicationInfo> applist;
+	private List<ApplicationInfo> applist;
 	PackagesInfo(Context context){
 		
 	}
-	public void getInfo(){
-		
+	public List<ApplicationInfo> getApplist() {
+		return applist;
 	}
+	public void setApplist(List<ApplicationInfo> applist) {
+		this.applist = applist;
+	}
+	
 }

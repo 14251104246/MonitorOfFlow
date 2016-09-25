@@ -12,7 +12,7 @@ public class MonitorManager implements IMonitorManager{
 	@Override
 	public IRealtimeMonitor getTrafficMonitor() {
 		if(monitor==null){
-			monitor=new TrafficMonitor();
+			monitor=new RealtimeMonitor();
 		}
 		return monitor;
 	}

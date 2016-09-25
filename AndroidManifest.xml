@@ -20,11 +20,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <service android:name="com.example.service.TrafficMonitorService" android:enabled="true"></service>
         <service android:enabled="true" android:name="com.example.service.SmallWindowService"></service>
@@ -34,6 +29,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </receiver>
+        <service android:name="com.example.service.DbUpdateService" android:enabled="true"></service>
+        <activity android:name="StartActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

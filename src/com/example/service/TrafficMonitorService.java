@@ -27,6 +27,25 @@ public class TrafficMonitorService extends Service{
 		return TrafficTotalRxSpeed;
 	}
 	
+	public void startAppTrafficMonitor(){
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				while(true){
+					long begin=trafficdata.getTotalRxFromBoot();
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+				}
+			}
+		}).start();
+	}
+	
 	public void startTotalRxSpeedMonitor(){
 		if(trafficdata==null){
 			trafficdata=new TrafficData();
@@ -43,9 +62,13 @@ public class TrafficMonitorService extends Service{
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					float rx = 0;
+					float tx = 0;
 					TrafficTotalRxSpeed=trafficdata.getTotalRxFromBoot()-begin;
-					
-					intent.putExtra("rx", TrafficTotalRxSpeed);
+					rx=(float) ((float) (monitor.getTrafficTotalRxSpeed())/1000.0);
+					tx=(float) ((float) (monitor.getTrafficTotalTxSpeed())/1000.0);
+					intent.putExtra("frx", rx);
+					intent.putExtra("ftx", tx);
 					sendBroadcast(intent);
 				}
 			}
@@ -111,7 +134,7 @@ public class TrafficMonitorService extends Service{
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		startTotalRxSpeedMonitor();
 		sendRealTimeTrafficData();
-		return super.onStartCommand(intent, flags, startId);
+		return Service.START_STICKY;
 	}
 
 	@Override

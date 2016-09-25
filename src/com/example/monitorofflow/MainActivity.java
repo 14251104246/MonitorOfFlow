@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import com.example.adapter.SectionsPagerAdapter;
 import com.example.fragment.PlaceholderFragment;
+import com.example.service.DbUpdateService;
 import com.example.service.SmallWindowService;
 import com.example.service.TrafficMonitorService;
 
@@ -28,6 +29,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements ActionBar.TabListener {
@@ -47,8 +50,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	ViewPager mViewPager;
 	
 	private TrafficMonitorService monitorService;
-	TextView textview;
-	MsgReceiver receiver ;
+	private TextView textview;
+	private MsgReceiver receiver ;
 	private Intent mintent;
 	private Intent smallIntent;
 
@@ -57,6 +60,9 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 		this.startService(mintent);
 		
 		smallIntent=new Intent(this,SmallWindowService.class);
+		this.startService(smallIntent);
+		
+		smallIntent=new Intent(this,DbUpdateService.class);
 		this.startService(smallIntent);
 
 		textview= (TextView) findViewById(R.id.textView1);
@@ -97,6 +103,8 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+	    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 		initService();
 
@@ -143,7 +151,7 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 	@Override
 	protected void onDestroy() {
 		// TODO Auto-generated method stub
-		stopService(mintent);
+//		stopService(mintent);
 		unregisterReceiver(receiver);
 		
 //		stopService(smallIntent);
@@ -151,6 +159,11 @@ public class MainActivity extends Activity implements ActionBar.TabListener {
 //		 unbindService(conn);
 		
 	}
+	
+	
+	
+	
+	//下面都是自动生成
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

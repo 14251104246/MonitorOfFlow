@@ -1,6 +1,8 @@
 package com.example.dao;
 
+import com.example.model.TotalTraffic;
+
 public interface ITotalTrafficDao {
-	public float queryTotalTraffic();
-	public float updateTotalTraffic();
+	public TotalTraffic queryTotalTraffic();
+	public boolean updateTotalTraffic(TotalTraffic totalTraffic);
 }

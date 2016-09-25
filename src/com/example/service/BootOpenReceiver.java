@@ -11,6 +11,7 @@ public class BootOpenReceiver extends BroadcastReceiver {
 		if(intent.getAction()==action){
 			context.startService(new Intent(context,TrafficMonitorService.class));
 			context.startService(new Intent(context,SmallWindowService.class));
+			context.startService(new Intent(context,DbUpdateService.class));
 		}
 
 	}

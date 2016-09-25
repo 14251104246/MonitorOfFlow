@@ -42,7 +42,7 @@
                 android:text="本日已用2g/3g/4g流量" />
 
             <TextView
-                android:id="@+id/TextView01"
+                android:id="@+id/dayGprs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -62,7 +62,7 @@
                 android:text="本日已用wifi流量" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/dayWifi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|end"
@@ -103,7 +103,7 @@
                 android:text="本月已用2g/3g/4g流量" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/gprsTraffic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
@@ -123,7 +123,7 @@
                 android:text="本月已用wifi流量" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/wifiTraffic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
@@ -144,7 +144,7 @@
                 android:text="本月流量限量" />
 
             <TextView
-                android:id="@+id/textView36"
+                android:id="@+id/monthLimit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
@@ -163,7 +163,7 @@
                 android:text="本月剩余流量" />
 
             <TextView
-                android:id="@+id/textView56"
+                android:id="@+id/monthRemain"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
@@ -182,16 +182,20 @@
                 android:text="GPS当前速度" />
 
             <TextView
-                android:id="@+id/textView76"
+                android:id="@+id/gprsup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
+ 				android:minWidth="70dp"
+                android:minHeight="6dp"
+        		android:textSize="10sp"
                 android:text="0" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/gprsdown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="6dp"
+        		android:textSize="10sp"
                 android:text="0" />
 
         </LinearLayout>
@@ -204,19 +208,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
+
                 android:text="WIFI当前速度" />
 
             <TextView
-                android:id="@+id/textView96"
+                android:id="@+id/wifiup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
+ 				android:minWidth="70dp"
+                android:minHeight="6dp"
+        		android:textSize="10sp"
                 android:text="0" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/wifidown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="6dp"
+        		android:textSize="10sp"
                 android:text="0" />
 
 				</LinearLayout>
