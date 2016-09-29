@@ -64,7 +64,9 @@ public class DbUpdateService extends Service {
 		
 	}
 	private void startThread() {
-		dbThread.start();
+		if(!dbThread.isAlive()){
+			dbThread.start();
+		}
 		
 	}
 	@Override

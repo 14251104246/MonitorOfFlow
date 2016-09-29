@@ -37,7 +37,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		sql = "insert into totalTraffic values(2.0,4.0,6.0,1,3.1,0,1,0)";
 		db.execSQL(sql);
 		//≥ı ºªØ≈‰÷√
-		sql = "insert into Config values('balanceSheetDate','2016-12-1')";
+		sql = "insert into Config values('balanceSheetDate','22')";
 		db.execSQL(sql);
 		
 		sql = "insert into Config values('gprsMaximum','30')";

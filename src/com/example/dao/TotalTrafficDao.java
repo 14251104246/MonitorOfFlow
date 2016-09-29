@@ -71,6 +71,23 @@ db.update("usertable",values,whereClause,whereArgs);
 		return false;
 	}
 
+	public boolean updateGprsTraffic(double monthlyTraffic,double yesterdayMTraffic) {
+		db=dbhelp.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		values.put("monthlyTraffic", monthlyTraffic);
+		values.put("yesterdayMTraffic", yesterdayMTraffic);
 
+		String whereClause="id=?";
+		String[] whereArgs={String.valueOf(1)};
+		int num=db.update("totalTraffic", values, whereClause, whereArgs);
+		
+		db.close();
+		if(num>0)return true;
+		
+		return false;
+		
+		
+	}
 
 }

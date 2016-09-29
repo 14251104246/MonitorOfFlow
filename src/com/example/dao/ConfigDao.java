@@ -35,7 +35,7 @@ public class ConfigDao extends DbDao implements IConfigDao{
 		db=dbhelp.getWritableDatabase();
 		ContentValues values = new ContentValues();
 		values.put("configValue", config.getConfigValue());
-		String whereClause ="configKey= ";
+		String whereClause ="configKey=?";
 		String[] whereArgs ={config.getConfigKey()};
 		int num=db.update("Config", values, whereClause, whereArgs);
 		db.close();
